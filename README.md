@@ -68,7 +68,7 @@ To add zsh from homebrew add `/usr/local/bin/zsh` to `/etc/shells` with command
 [Source](http://stackoverflow.com/questions/1276703/how-to-make-zsh-run-as-a-login-shell-on-mac-os-x-in-iterm/35762726#35762726)
 
 ```bash
-sudo ch -c "echo '/usr/local/bin/zsh' >> /etc/shells" && chsh -s /usr/local/bin/zsh
+sudo sh -c "echo '/usr/local/bin/zsh' >> /etc/shells" && chsh -s /usr/local/bin/zsh
 ```
 
 Zplug usage
