@@ -30,6 +30,10 @@ alias du='du -h -c' # calculate disk usage for a folder
 # Applications
 alias ios='open -a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app'
 
+# Gatekeeper disable/enable
+alias gatekeeperdown="sudo spctl --master-disable"
+alias gatekeeperup="sudo spctl --master-enable"
+
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
