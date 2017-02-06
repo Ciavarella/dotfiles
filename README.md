@@ -83,3 +83,16 @@ Install node from nvm. This install latest version.
 ```bash
 nvm install node
 ```
+
+## macOS generall
+
+In Sierra apple removed to temporarily allow apps from usigned developers.
+
+	```bash
+	# Disable Gatekeeper
+	gatekeeperdown
+
+	# Enable Gatekeeper
+	gatekeeperup
+	```
+
