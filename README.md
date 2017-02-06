@@ -88,11 +88,11 @@ nvm install node
 
 In Sierra apple removed to temporarily allow apps from usigned developers.
 
-	```bash
-	# Disable Gatekeeper
-	gatekeeperdown
+```bash
+# Disable Gatekeeper
+gatekeeperdown
 
-	# Enable Gatekeeper
-	gatekeeperup
-	```
+# Enable Gatekeeper
+gatekeeperup
+```
 
