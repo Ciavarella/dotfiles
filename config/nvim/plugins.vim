@@ -17,8 +17,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 " colorschemes
-" Plug 'dracula/vim'
-Plug 'joshdick/onedark.vim'
+Plug 'dracula/vim'
 
 " utilities
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
@@ -70,9 +69,6 @@ Plug 'Quramy/tsuquyomi', { 'for': 'typescript', 'do': 'npm install' } " extended
 Plug 'clausreinke/typescript-tools.vim', { 'for': 'typescript' } " typescript tools
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' } " typescript support
 
-" Elm
-Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
-
 " styles
 Plug 'wavded/vim-stylus', { 'for': ['stylus', 'markdown'] } " markdown support
 Plug 'groenewege/vim-less', { 'for': 'less' } " less support
@@ -80,8 +76,7 @@ Plug 'ap/vim-css-color', { 'for': ['css','stylus','scss'] } " set the background
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' } " CSS3 syntax support
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' } " sass scss syntax support
 
-" markdown
-Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' } " Open markdown files in Marked.app - mapped to <leader>m
+" Markdown support
 Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown support
 
 " language-specific plugins
@@ -89,7 +84,6 @@ Plug 'elzr/vim-json', { 'for': 'json' } " JSON support
 Plug 'Shougo/vimproc.vim', { 'do': 'make' } " interactive command execution in vim
 Plug 'fatih/vim-go', { 'for': 'go' } " go support
 Plug 'timcharper/textile.vim', { 'for': 'textile' } " textile support
-" Plug 'tclem/vim-arduino' " arduino support - compile wihtout needing to open the arduino IDE
 
 call plug#end()
 
