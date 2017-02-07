@@ -50,7 +50,6 @@ formulas=(
     Caskroom/cask/postman
     Caskroom/cask/sublime-text
     Caskroom/cask/webtorrent
-    Caskroom/cask/ealeksandrov-cd-to
 )
 
 for formula in "${formulas[@]}"; do
