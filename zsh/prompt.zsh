@@ -63,8 +63,8 @@ suspended_jobs() {
 
 precmd() {
     vcs_info
-    print -P '\n%F{51}%~'
+    print -P '\n%F{75}%~'
 }
 
-export PROMPT='%(?.%F{205}.%F{red})⇨%f '
+export PROMPT='%(?.%F{164}.%F{red})⇨%F{163} '
 export RPROMPT='`git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'
