@@ -82,7 +82,7 @@ precmd() {
 # export PROMPT='%(?.%F{164}.%F{red})➜ '
 
 # Old old style, but ill keep it here for reference.
-export PROMPT='%F{155}➜  %F{129}$(collapsed_wd)%F{241}$vcs_info_msg_0_%f`git_dirty``git_arrows``suspended_jobs` % '
+export PROMPT='%F{156}➜  %F{129}$(collapsed_wd)%F{241}$vcs_info_msg_0_%f`git_dirty``git_arrows``suspended_jobs` % '
 
 # Git status to the right
 # export RPROMPT='`git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'
