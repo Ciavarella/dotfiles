@@ -4,5 +4,7 @@ split-window -v -p 10 -t dev
 select-pane -t 1
 split-window -h -p 30 -t dev
 new-window -n shell
+new-window -n server
+split-window -h -p 50 -t dev 
 select-window -t dev:1
 select-pane -t 1
