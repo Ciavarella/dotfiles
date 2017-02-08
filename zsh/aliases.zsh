@@ -52,6 +52,9 @@ alias trimcopy="tr -d '\n' | pbcopy"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
+# Clear terminal
+alias clr="clear"
+
 # File size
 alias fs="stat -f \"%z bytes\""
 
