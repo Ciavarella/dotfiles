@@ -333,6 +333,7 @@ let g:airline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
 let g:airline#extensions#tabline#show_buffers = 1 " do not show open buffers in tabline
+let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#show_splits = 0
 
 let g:tsuquyomi_disable_default_mappings = 1
