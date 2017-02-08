@@ -75,11 +75,14 @@ collapsed_wd() {
 # First row
 precmd() {
     vcs_info
-    print -P '\n%F{75}$(collapsed_wd) `git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'
+    # print -P '\n%F{75}$(collapsed_wd) `git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'
 }
 
 # Second row
-export PROMPT='%(?.%F{164}.%F{red})⇨%F{163} '
+# export PROMPT='%(?.%F{164}.%F{red})➜ '
 
 # Old old style, but ill keep it here for reference.
+export PROMPT='%F{155}➜  %F{75}$(collapsed_wd) `git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`% '
+
+# Git status to the right
 # export RPROMPT='`git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'
