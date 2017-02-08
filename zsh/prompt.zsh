@@ -1,5 +1,5 @@
-# heavily inspired by the wonderful pure theme
-# https://github.com/sindresorhus/pure
+# Heavily inspired by Fish shell
+# https://github.com/ludviglundgren
 
 # needed to get things like current git branch
 autoload -Uz vcs_info
@@ -61,6 +61,8 @@ suspended_jobs() {
     fi
 }
 
+# Make pwd path shorter
+# Instead of /development/app/views/js show /d/a/v/js
 collapsed_wd() {
   echo $(pwd | perl -pe '
    BEGIN {
@@ -70,10 +72,14 @@ collapsed_wd() {
 ')
 }
 
+# First row
 precmd() {
     vcs_info
     print -P '\n%F{75}$(collapsed_wd) `git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'
 }
 
+# Second row
 export PROMPT='%(?.%F{164}.%F{red})⇨%F{163} '
+
+# Old old style, but ill keep it here for reference.
 # export RPROMPT='`git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'
