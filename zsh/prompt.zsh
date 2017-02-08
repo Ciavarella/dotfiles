@@ -18,9 +18,9 @@ git_dirty() {
     # check if it's dirty
     command git diff --quiet --ignore-submodules HEAD &>/dev/null;
     if [[ $? -eq 1 ]]; then
-        echo "%F{red}✗%f"
+        echo " %F{red}✗%f"
     else
-        echo "%F{green}✔%f"
+        echo " %F{green}✔%f"
     fi
 }
 
@@ -42,8 +42,8 @@ git_arrows() {
     arrow_status=(${(ps:\t:)arrow_status})
     local left=${arrow_status[1]} right=${arrow_status[2]}
 
-    (( ${right:-0} > 0 )) && arrows+="%F{011}⇣%f"
-    (( ${left:-0} > 0 )) && arrows+="%F{012}⇡%f"
+    (( ${right:-0} > 0 )) && arrows+=" %F{011}⇣%f"
+    (( ${left:-0} > 0 )) && arrows+=" %F{012}⇡%f"
 
     echo $arrows
 }
@@ -75,14 +75,14 @@ collapsed_wd() {
 # First row
 precmd() {
     vcs_info
-    # print -P '\n%F{75}$(collapsed_wd) `git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'
+   # print -P '\n%F{75}$(collapsed_wd) `git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'
 }
 
 # Second row
 # export PROMPT='%(?.%F{164}.%F{red})➜ '
 
 # Old old style, but ill keep it here for reference.
-export PROMPT='%F{155}➜  %F{75}$(collapsed_wd) `git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`% '
+export PROMPT='%F{155}➜  %F{129}$(collapsed_wd)%F{241}$vcs_info_msg_0_%f`git_dirty``git_arrows``suspended_jobs` % '
 
 # Git status to the right
 # export RPROMPT='`git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'
