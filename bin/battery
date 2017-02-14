@@ -1,20 +1,21 @@
 #!/bin/bash
 
-##
-## I use this script to output the battery level when working in a full-
-## screen Tmux environment. The output (for coloring) assumes that you
-## are working in Tmux. Right now I just have it working for my mac
-## (OS X 10.6). Feel free to fork and add your own OS.
-## 
+# Script to output the battery level when working in a fullscreen-
+# Tmux environment. Outputs color according to level of charge.
 
-if [ `uname` = 'Darwin' ] ; then
-  percent=`ioreg -l | grep -i capacity | tr '\n' ' | ' | awk '{printf("%d", $10/$5 * 100)}'`
+battery_info=`pmset -g batt`
+current_charge=$(echo $battery_info | egrep -o '[0-9]+\%' | awk '{sub (/%/, "", $1); print $1}')
+
+if   [[ $current_charge -lt 20 ]]; then 
+    echo -n '#[fg=colour160]'
+elif [[ $current_charge -lt 50 ]]; then 
+    echo -n '#[fg=colour202]'
+elif [[ $current_charge -lt 70 ]]; then 
+    echo -n '#[fg=colour70]'
+elif [[ $current_charge -lt 99 ]]; then
+    echo -n '#[fg=colour76]'
+else 
+    echo -n '#[fg=colour8]'
 fi
 
-
-if   (( percent > 80 )); then color='#[nobright fg=green]'
-elif (( percent > 65 )); then color='#[bright fg=yellow]'
-elif (( percent > 40 )); then color='#[bright fg=red]'
-                         else color='#[nobright fg=red]'
-fi
-echo "$color Battery $percent%"
+echo -n "$color Charge $current_charge%"
