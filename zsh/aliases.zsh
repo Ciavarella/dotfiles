@@ -10,6 +10,9 @@ fi
 
 alias vim="nvim"
 
+# Fix terminfo on remote machine 
+alias ssh="TERM=xterm-256color ssh"
+
 # Filesystem aliases
 alias ..='cd ..'
 alias ...='cd ../..'
