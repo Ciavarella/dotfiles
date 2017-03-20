@@ -35,6 +35,8 @@ export EDITOR='nvim'
 
 export PATH=/usr/local/bin:$PATH
 
+export PATH="$PATH:`yarn global bin`"
+
 # add /usr/local/sbin
 if [[ -d /usr/local/sbin ]]; then
     export PATH=/usr/local/sbin:$PATH

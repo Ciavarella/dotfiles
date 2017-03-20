@@ -1,4 +1,3 @@
-# dojo/AMD snippets
 snippet strict
 	'use strict';
 snippet def
@@ -24,9 +23,11 @@ snippet :f
 	}
 snippet fn
 	function () {
+		${1}
 	}
 snippet fun
 	function ${1:name}(${2:args}) {
+		${3}
 	}
 snippet iife
 	(function () {
@@ -68,19 +69,6 @@ snippet des
 	});
 snippet it
 	it('${1}', function () {
-	});
-# dojo snippets
-snippet widget
-	define([
-		'dojo/_base/declare',
-		'dijit/_WidgetBase',
-		'dijit/_TemplatedMixin',
-		'dijit/_WidgetsInTemplateMixin',
-		'dojo/text!./templates/${1}.html'
-	], function (declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, template) {
-		return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
-			templateString: template
-		});
 	});
 snippet doc
 	/**
