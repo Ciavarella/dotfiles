@@ -48,6 +48,7 @@ Plug 'AndrewRadev/splitjoin.vim' " single/multi line code handler: gS - split on
 Plug 'vim-scripts/matchit.zip' " extended % matching
 Plug 'tpope/vim-sleuth' " detect indent style (tabs vs. spaces)
 Plug 'sickill/vim-pasta' " context-aware pasting
+Plug 'vimwiki/vimwiki' " vim wiki for docs and journal
 
 " html / templates
 Plug 'mattn/emmet-vim', { 'for': 'html' } " emmet support for vim - easily create markdup wth CSS-like syntax

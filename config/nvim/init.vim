@@ -251,6 +251,9 @@ augroup END
 
 " FZF
 """""""""""""""""""""""""""""""""""""
+" Make vimwiki markdown
+let g:vimwiki_list = [{'path': '~/Dropbox/Notes/vimwiki',
+                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " Toggle NERDTree
 nmap <silent> <leader>k :NERDTreeToggle<cr>
