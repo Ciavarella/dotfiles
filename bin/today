@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# script to initialize and open TODAY markdown file
+
+prefix="TODAY"
+strftime_header="%A, %m/%d/%Y"
+
+# assign input arguments to filename and header
+# e.g.:
+#   $ today SCRUM
+#   created SCRUM-20130325.md
+#   "# SCRUM, 03/25/2013"
+
+if [ -n "$1" ]; then
+  prefix="$1"
+  strftime_header="$1, %m/%d/%Y"
+fi
+
+filename=$prefix-`date +%Y%m%d.md`
+
+if [ ! -f "$filename" ]; then
+  echo \# `date +"$strftime_header"` >> $filename
+  echo created $filename
+fi
+
+nvim "$filename"
