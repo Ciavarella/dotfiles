@@ -1,3 +1,4 @@
+zmodload zsh/zprof
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
 
@@ -50,17 +51,20 @@ if [[ -d ~/bin ]]; then
     export PATH=~/bin:$PATH
 fi
 
+# add php to PATH
+export PATH=/usr/local/bin/php:$PATH
+
 [ -z "$TMUX" ] && export TERM=xterm-256color-italic
 
 # install rbenv
-if command_exists rbenv; then
-    eval "$(rbenv init -)"
-fi
+#if command_exists rbenv; then
+#    eval "$(rbenv init -)"
+#fi
 
-if [[ -d ~/.rvm ]]; then
-    PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
-    source ~/.rvm/scripts/rvm
-fi
+#if [[ -d ~/.rvm ]]; then
+#    PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
+#    source ~/.rvm/scripts/rvm
+#fi
 
 # alias git to hub
 if command_exists hub; then
@@ -69,3 +73,13 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'
+
+# zplug config
+export ZPLUG_LOADFILE=$DOTFILES/zsh/zplug.sh
+
+# only source zplug on initial load
+if [ -z ${RELOAD} ]; then
+    if ! [ type "zplug" > /dev/null 2>&1 ]; then
+        source ~/.zplug/init.zsh
+    fi
+fi
