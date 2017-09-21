@@ -33,9 +33,4 @@ elif ! [[ $SHELL =~ .*zsh.* ]]; then
     chsh -s /usr/local/bin/zsh
 fi
 
-if ! command_exists zplug; then
-    echo "installing zplug, a plugin manager for zsh - http://zplug.sh"
-    git clone https://github.com/zplug/zplug ~/.zplug
-fi
-
 echo "Done. Reload your terminal."

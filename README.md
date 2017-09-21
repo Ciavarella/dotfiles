@@ -6,7 +6,7 @@ Contains configuration for zsh, tmux, nvim etc.
 
 ## Installation
 
-For macOS you need to install the XCode CLI tools. 
+For macOS you need to install the XCode CLI tools.
 
 ```bash
 xcode-select --install
@@ -71,11 +71,9 @@ To add zsh from homebrew add `/usr/local/bin/zsh` to `/etc/shells` with command
 sudo sh -c "echo '/usr/local/bin/zsh' >> /etc/shells" && chsh -s /usr/local/bin/zsh
 ```
 
-Zplug usage
+TODO:
+Add zsh-autosuggestion and zsh-highlightning config to setup.
 
-```bash
-zplug install
-```
 ### Node
 
 Install node from nvm. This install latest version.
