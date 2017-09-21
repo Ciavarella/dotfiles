@@ -17,6 +17,7 @@ formulas=(
     fzf
     markdown
     neovim/neovim/neovim
+    nvm
     reattach-to-user-namespace
     the_silver_searcher
     tmux
