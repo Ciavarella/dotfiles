@@ -9,6 +9,7 @@ else # OS X `ls`
 fi
 
 alias vim="nvim"
+alias git="hub"
 
 # Fix terminfo on remote machine
 alias ssh="TERM=xterm-256color ssh"

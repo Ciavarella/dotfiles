@@ -98,3 +98,8 @@ function hl() {
 
     echo $src | highlight -O rtf --syntax $1 --font Inconsoloata --style $style --line-number --font-size 24 | pbcopy
 }
+
+function bzsh() {
+    echo "Starting zsh 10 times and logging output"
+    repeat 10 {/usr/bin/time zsh -i -c exit}
+}
