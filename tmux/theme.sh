@@ -1,6 +1,4 @@
 #### COLOUR
-
-tm_icon="🙊 "
 tm_color_active=colour33
 tm_color_inactive=colour241
 tm_color_feature=colour55
@@ -54,7 +52,7 @@ tm_battery="#(~/.dotfiles/bin/battery)"
 
 tm_date="#[fg=$tm_color_inactive] %a %d %b %R"
 tm_host="#[fg=$tm_color_feature,bold]#h"
-tm_session_name="#[fg=$tm_color_feature,bold]$tm_icon #S"
+tm_session_name="#[fg=$tm_color_feature,bold]#S"
 
 set -g status-left $tm_session_name' '
 set -g status-right $tm_tunes' '$tm_battery' '$tm_date' '$tm_host
