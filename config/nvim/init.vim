@@ -144,6 +144,9 @@ nmap <silent> <leader>b :bw<cr>
 " shortcut to save
 nmap <leader>, :w<cr>
 
+" force save as sudo
+cnoremap w!! w !sudo tee > /dev/null %
+
 " set paste toggle
 set pastetoggle=<leader>v
 
