@@ -125,6 +125,7 @@
     # set up 'git pull' to rebase instead of merge
     autosetuprebase = always
 [diff]
+    tool = Kaleidoscope
     renames = copies
     mnemonicprefix = true
     compactionHeuristic = true
@@ -147,6 +148,8 @@
     lineNumber = true
 [credential]
     helper = osxkeychain
+[merge]
+    tool = Kaleidoscope
 [difftool "Kaleidoscope"]
     cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
