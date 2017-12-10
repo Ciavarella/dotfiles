@@ -23,6 +23,7 @@ formulas=(
     tmux
     tree
     wget
+    yarn --without-node
     zsh
     z
     Caskroom/cask/iterm2

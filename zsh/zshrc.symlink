@@ -1,9 +1,6 @@
 export DOTFILES=$HOME/.dotfiles
 export ZSH=$DOTFILES/zsh
 
-# adding path directory for custom scripts
-export PATH=$DOTFILES/bin:$PATH
-
 # display how long all tasks over 10 seconds take
 # export REPORTTIME=10
 
@@ -28,9 +25,15 @@ compinit
 
 for config ($ZSH/**/*completion.sh) source $config
 
+# adding path directory for custom scripts
+export PATH=$DOTFILES/bin:$PATH
+
 export EDITOR='nvim'
 
 export PATH=/usr/local/bin:$PATH
+
+# composer global install
+export PATH=$HOME/.composer/vendor/bin:$PATH
 
 # add /usr/local/sbin
 if [[ -d /usr/local/sbin ]]; then
@@ -50,8 +53,8 @@ export PATH=/usr/local/bin/php:$PATH
 #export PATH="$PATH:`yarn global bin`"
 
 # nvm config
-# export NVM_DIR="$HOME/.nvm"
-# . "/usr/local/opt/nvm/nvm.sh"
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #export FZF_DEFAULT_COMMAND='ag -g ""'
