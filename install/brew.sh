@@ -12,6 +12,7 @@ formulas=(
     # flags should pass through the the `brew list check`
     diff-so-fancy
     ack
+    docker
     git
     hub
     fzf
@@ -26,32 +27,24 @@ formulas=(
     yarn --without-node
     zsh
     z
+    Caskroom/cask/alfred
     Caskroom/cask/iterm2
-    Caskroom/cask/macdown
-    Caskroom/cask/spectacle
-    Caskroom/cask/flux
     Caskroom/cask/caffeine
     Caskroom/cask/bartender
-    Caskroom/cask/dropbox
+    Caskroom/cask/dashlane
     Caskroom/cask/virtualbox
-    Caskroom/cask/transmission
-    Caskroom/cask/imageoptim
     Caskroom/cask/google-chrome
-    Caskroom/cask/cyberduck
-    Caskroom/cask/mountain-duck
-    Caskroom/cask/skype
+    Caskroom/cask/firefox-developer-edition
+    Caskroom/cask/filezilla
     Caskroom/cask/spotify
     Caskroom/cask/slack
     Caskroom/cask/the-unarchiver
     Caskroom/cask/vlc
     Caskroom/cask/visual-studio-code
     Caskroom/cask/goofy
-    Caskroom/cask/clipmenu
     Caskroom/cask/gitkraken
     Caskroom/cask/sequel-pro
     Caskroom/cask/postman
-    Caskroom/cask/sublime-text
-    Caskroom/cask/webtorrent
 )
 
 for formula in "${formulas[@]}"; do

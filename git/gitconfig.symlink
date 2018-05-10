@@ -1,9 +1,9 @@
 # gitconfig
 [user]
-    name = Ludvig Lundgren
-    email = hello@ludviglundgren.se
+    name = Victor Ciavarella
+    email = victor.ciavarella@chasacademy.se
 [github]
-    user = ludviglundgren
+    user = Ciavarella
 [init]
     templatedir = ~/.dotfiles/git/templates
 [alias]
