@@ -28,7 +28,7 @@ for config ($ZSH/**/*completion.sh) source $config
 # adding path directory for custom scripts
 export PATH=$DOTFILES/bin:$PATH
 
-export EDITOR='nvim'
+export EDITOR='vim'
 
 export PATH=/usr/local/bin:$PATH
 
@@ -63,3 +63,11 @@ export NVM_DIR="$HOME/.nvm"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # zsh-syntax-highlightning
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+autoload -U promptinit; promptinit
+
+# Aliases
+alias lsa='ls -lah'
+
+# FZF
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'

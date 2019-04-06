@@ -1,6 +1,6 @@
 # Dotfiles
 
-Fork of [nicknissi's dotfiles](https://github.com/nicknissi/dotfiles)
+Fork of [ludviglundgrens's dotfiles](https://github.com/ludviglundgren/dotfiles)
 
 Contains configuration for zsh, tmux, nvim etc.
 
@@ -15,17 +15,17 @@ xcode-select --install
 Then clone the repo. Symbolic links will be created and therefore location does not matter.
 
 ```bash
-git clone https://github.com/ludviglundgren/dotfiles.git ~/.dotfiles
+git clone https://github.com/Ciavarella/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./install.sh
 ```
 
-## Neovim
+## Vim
 
-Install neovim plugins with
+Install vim plugins with
 
 ```bash
-:InstallPlug
+vim +PlugInstall
 ```
 
 ### Generall vim usage
@@ -93,4 +93,3 @@ gatekeeperdown
 # Enable Gatekeeper
 gatekeeperup
 ```
-

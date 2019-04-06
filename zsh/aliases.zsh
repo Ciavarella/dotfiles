@@ -8,7 +8,6 @@ else # OS X `ls`
     colorflag="-G"
 fi
 
-alias vim="nvim"
 alias git="hub"
 
 # Fix terminfo on remote machine

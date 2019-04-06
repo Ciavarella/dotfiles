@@ -33,7 +33,7 @@ for config in $DOTFILES/config/*; do
 done
 
 # Create vim symlinks
-# Lets symlink ~/.vimrc and ~/.vim over to their neovim equivalent.
+# Lets symlink ~/.vimrc and ~/.vim from dotifles to HOME.
 
 echo -e "\n\nCreating vim symlinks"
 echo "=============================="

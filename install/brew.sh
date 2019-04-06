@@ -17,7 +17,6 @@ formulas=(
     hub
     fzf
     markdown
-    neovim/neovim/neovim
     nvm
     reattach-to-user-namespace
     the_silver_searcher
@@ -30,12 +29,10 @@ formulas=(
     Caskroom/cask/alfred
     Caskroom/cask/iterm2
     Caskroom/cask/caffeine
-    Caskroom/cask/bartender
     Caskroom/cask/dashlane
     Caskroom/cask/virtualbox
     Caskroom/cask/google-chrome
     Caskroom/cask/firefox-developer-edition
-    Caskroom/cask/filezilla
     Caskroom/cask/spotify
     Caskroom/cask/slack
     Caskroom/cask/the-unarchiver
