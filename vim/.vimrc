@@ -56,18 +56,18 @@ set nofoldenable        "dont fold by default
 
 " ================ Completion =======================
 
-set wildmode=list:longest
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
+"set wildmode=list:longest
+"set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+"set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+"set wildignore+=*vim/backups*
+"set wildignore+=*sass-cache*
+"set wildignore+=*DS_Store*
+"set wildignore+=vendor/rails/**
+"set wildignore+=vendor/cache/**
+"set wildignore+=*.gem
+"set wildignore+=log/**
+"set wildignore+=tmp/**
+"set wildignore+=*.png,*.jpg,*.gif
 
 " ================ Scrolling ========================
 
@@ -93,30 +93,30 @@ let g:python3_host_prog = "/usr/local/bin/python3"
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
-Plug 'lifepillar/vim-mucomplete'
+"Plug 'lifepillar/vim-mucomplete'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Deoplete
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
 " Airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:airline#extensions#branch#enabled=1
-let g:airline#extensions#branch#empty_message = 'No branch detected'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#ale#enabled = 1
-let airline#extensions#ale#error_symbol = 'E:'
-let airline#extensions#ale#warning_symbol = 'W:'
-let airline#extensions#ale#show_line_numbers = 1
-let airline#extensions#ale#open_lnum_symbol = '(L'
-let airline#extensions#ale#close_lnum_symbol = ')'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"let g:airline#extensions#branch#enabled=1
+"let g:airline#extensions#branch#empty_message = 'No branch detected'
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#ale#enabled = 1
+"let airline#extensions#ale#error_symbol = 'E:'
+"let airline#extensions#ale#warning_symbol = 'W:'
+"let airline#extensions#ale#show_line_numbers = 1
+"let airline#extensions#ale#open_lnum_symbol = '(L'
+"let airline#extensions#ale#close_lnum_symbol = ')'
 
 "Python
 Plug 'deoplete-plugins/deoplete-jedi'
@@ -152,7 +152,9 @@ let NERDTreeShowHidden=1
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'storyn26383/vim-vue'
 
 Plug 'autozimu/LanguageClient-neovim', {
       \ 'branch': 'next',
@@ -229,5 +231,6 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 " Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 0
+" Commented out to remove autocompletion.
+ let g:deoplete#enable_at_startup = 0
+" let g:deoplete#auto_complete_delay = 0
