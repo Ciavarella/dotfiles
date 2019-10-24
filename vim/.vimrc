@@ -106,17 +106,17 @@ else
 endif
 
 " Airline
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-"let g:airline#extensions#branch#enabled=1
-"let g:airline#extensions#branch#empty_message = 'No branch detected'
-"let g:airline_powerline_fonts = 1
-"let g:airline#extensions#ale#enabled = 1
-"let airline#extensions#ale#error_symbol = 'E:'
-"let airline#extensions#ale#warning_symbol = 'W:'
-"let airline#extensions#ale#show_line_numbers = 1
-"let airline#extensions#ale#open_lnum_symbol = '(L'
-"let airline#extensions#ale#close_lnum_symbol = ')'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#branch#empty_message = 'No branch detected'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#ale#enabled = 1
+let airline#extensions#ale#error_symbol = 'E:'
+let airline#extensions#ale#warning_symbol = 'W:'
+let airline#extensions#ale#show_line_numbers = 1
+let airline#extensions#ale#open_lnum_symbol = '(L'
+let airline#extensions#ale#close_lnum_symbol = ')'
 
 "Python
 Plug 'deoplete-plugins/deoplete-jedi'
