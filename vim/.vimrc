@@ -133,7 +133,8 @@ Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '|'
 
 "Editor setup
-Plug 'scrooloose/nerdcommenter'
+"Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 
 "Theme
