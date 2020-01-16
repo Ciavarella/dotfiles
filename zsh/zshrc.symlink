@@ -71,3 +71,6 @@ alias lsa='ls -lah'
 
 # FZF
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+# GO
+export PATH=$PATH:/usr/local/go/bin

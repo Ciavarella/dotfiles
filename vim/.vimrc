@@ -56,18 +56,18 @@ set nofoldenable        "dont fold by default
 
 " ================ Completion =======================
 
-"set wildmode=list:longest
-"set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-"set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-"set wildignore+=*vim/backups*
-"set wildignore+=*sass-cache*
-"set wildignore+=*DS_Store*
-"set wildignore+=vendor/rails/**
-"set wildignore+=vendor/cache/**
-"set wildignore+=*.gem
-"set wildignore+=log/**
-"set wildignore+=tmp/**
-"set wildignore+=*.png,*.jpg,*.gif
+set wildmode=list:longest
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
 
 " ================ Scrolling ========================
 
@@ -93,7 +93,7 @@ let g:python3_host_prog = "/usr/local/bin/python3"
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
-"Plug 'lifepillar/vim-mucomplete'
+Plug 'lifepillar/vim-mucomplete'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Deoplete
@@ -234,4 +234,4 @@ let g:ale_fix_on_save = 1
 " Deoplete
 " Commented out to remove autocompletion.
  let g:deoplete#enable_at_startup = 0
-" let g:deoplete#auto_complete_delay = 0
+ let g:deoplete#auto_complete_delay = 1
