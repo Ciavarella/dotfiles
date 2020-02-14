@@ -1,7 +1,7 @@
 # gitconfig
 [user]
     name = Victor Ciavarella
-    email = victor.ciavarella@chasacademy.se
+    email = victor.ciavarella@gmail.com
 [github]
     user = Ciavarella
 [init]

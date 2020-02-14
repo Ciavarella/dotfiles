@@ -190,7 +190,11 @@ autocmd FileType php let b:ale_php_phpcs_standard =
       \ FindConfig('-c', '.phpcs.xml', expand('<afile>:p:h', 1))
 
 
-let g:ale_javascript_eslint_suppress_missing_config = 1
+let g:ale_javascript_eslint_suppress_missing_config = 0
+
+" Dont forget to install packages.
+" npm i -g eslint
+" npm i -D prettier eslint-plugin-prettier eslint-config-prettier
 
 let g:ale_echo_cursor = 1
 let g:ale_echo_msg_error_str = 'Error'
@@ -202,7 +206,6 @@ let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_linter_aliases = {}
-let g:ale_linters = {}
 let g:ale_open_list = 0
 let g:ale_set_highlights = 0
 let g:ale_set_loclist = 1
@@ -215,9 +218,9 @@ let g:ale_sign_warning = '⚠'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_warn_about_trailing_whitespace = 1
 
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --semi false'
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --no-semi'
 let g:ale_linters = {
-      \ 'javascript': ['eslint'],
+      \ 'javascript': ['prettier'],
       \ 'typescript': ['eslint'],
       \ 'python': ['pylint'],
       \ 'php': ['phpcs']
@@ -225,7 +228,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'css': ['prettier'],
-      \ 'javascript': ['eslint', 'prettier', 'prettier_eslint'],
+      \ 'javascript': ['prettier'],
       \ 'typescript': ['eslint', 'prettier'],
       \ 'php': ['phpcbf', 'php_cs_fixer', 'remove_trailing_lines', 'trim_whitespace'],
       \ }
