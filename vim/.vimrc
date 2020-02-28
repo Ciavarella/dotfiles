@@ -140,8 +140,9 @@ Plug 'scrooloose/nerdtree'
 "Theme
 "Plug 'morhetz/gruvbox'
 "Plug 'gosukiwi/vim-atom-dark'
-Plug 'joshdick/onedark.vim'
-let g:onedark_termcolors=256
+" Plug 'joshdick/onedark.vim'
+" let g:onedark_termcolors=256
+Plug 'arzg/vim-colors-xcode'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'Raimondi/delimitMate'
@@ -169,7 +170,8 @@ call plug#end()
 
 "Set theme
 "colorscheme gruvbox
-colorscheme onedark
+"colorscheme onedark
+colorscheme xcodedarkhc
 "set background=dark
 
 " ALE
