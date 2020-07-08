@@ -82,23 +82,20 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
+set signcolumn=yes
+
 " ===================== Plug Installation ====================
 call plug#begin('~/.vim/plugged')
 
-Plug 'w0rp/ale'
 Plug 'scrooloose/syntastic'
 
 " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
 let g:python3_host_prog = "/usr/local/bin/python3"
 Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-
-Plug 'lifepillar/vim-mucomplete'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Deoplete
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
 "  Plug 'Shougo/deoplete.nvim'
 "  Plug 'roxma/nvim-yarp'
@@ -133,21 +130,22 @@ Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '|'
 
 "Editor setup
-"Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-commentary'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 
 "Theme
 "Plug 'morhetz/gruvbox'
 "Plug 'gosukiwi/vim-atom-dark'
 " Plug 'joshdick/onedark.vim'
 " let g:onedark_termcolors=256
-Plug 'arzg/vim-colors-xcode'
+" Plug 'arzg/vim-colors-xcode'
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
-let NERDTreeShowHidden=1
+"let NERDTreeShowHidden=1
 
 
 " Syntax
@@ -164,79 +162,131 @@ Plug 'autozimu/LanguageClient-neovim', {
       \ }
 
 Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" Filesearch
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+"COC
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'ryanoasis/vim-devicons'
+let g:WebDevIconsOS = 'Darwin'
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFolderExtensionPatternMatching = 1
 
 call plug#end()
 
 "Set theme
 "colorscheme gruvbox
 "colorscheme onedark
-colorscheme xcodedarkhc
-"set background=dark
+"colorscheme xcodedarkhc
+colorscheme palenight
+set background=dark
 
-" ALE
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_php_phpcbf_standard='PSR2'
-let g:ale_php_phpcs_standard='.phpcs.xml'
-let g:ale_php_phpmd_ruleset='phpmd.xml'
+" set a map leader for more key combos
+let mapleader = ','
 
-function! FindConfig(prefix, what, where)
-  let cfg = findfile(a:what, escape(a:where, ' ') . ';')
-  return cfg !=# '' ? ' ' . a:prefix . ' ' . shellescape(cfg) : ''
-endfunction
+" Mappings
+    " shortcut to save
+    nmap <leader>, :w<cr>
+    if isdirectory(".git")
+      " if in a git project, use :GFiles
+      nmap <silent> <leader>t :GitFiles --cached --others --exclude-standard<cr>
+    else
+      " otherwise, use :FZF
+      nmap <silent> <leader>t :FZF<cr>
+    endif
+      nmap <silent> <leader>s :GFiles<cr>
 
-autocmd FileType php let b:ale_php_phpcs_standard =
-      \ get(g:, 'ale_php_phpcs_standard', '') .
-      \ FindConfig('-c', '.phpcs.xml', expand('<afile>:p:h', 1))
+    " coc {{{
 
+        let g:coc_global_extensions = [
+        \ 'coc-css',
+        \ 'coc-json',
+        \ 'coc-tsserver',
+        \ 'coc-git',
+        \ 'coc-eslint',
+        \ 'coc-tslint-plugin',
+        \ 'coc-pairs',
+        \ 'coc-sh',
+        \ 'coc-vimlsp',
+        \ 'coc-prettier',
+        \ 'coc-ultisnips',
+        \ 'coc-explorer',
+        \ 'coc-diagnostic'
+        \ ]
 
-let g:ale_javascript_eslint_suppress_missing_config = 0
+        autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Dont forget to install packages.
-" npm i -g eslint
-" npm i -D prettier eslint-plugin-prettier eslint-config-prettier
+        " coc-prettier
+        command! -nargs=0 Prettier :CocCommand prettier.formatFile
+        nmap <leader>f :CocCommand prettier.formatFile<cr>
 
-let g:ale_echo_cursor = 1
-let g:ale_echo_msg_error_str = 'Error'
-let g:ale_echo_msg_warning_str = 'Warning'
-let g:ale_enabled = 1
-let g:ale_keep_list_window_open = 0
-let g:ale_lint_delay = 200
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_linter_aliases = {}
-let g:ale_open_list = 0
-let g:ale_set_highlights = 0
-let g:ale_set_loclist = 1
-let g:ale_set_quickfix = 1
-let g:ale_set_signs = 1
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '✖'
-let g:ale_sign_offset = 1000000
-let g:ale_sign_warning = '⚠'
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-let g:ale_warn_about_trailing_whitespace = 1
+        " coc-git
+        nmap [g <Plug>(coc-git-prevchunk)
+        nmap ]g <Plug>(coc-git-nextchunk)
+        nmap gs <Plug>(coc-git-chunkinfo)
+        nmap gu :CocCommand git.chunkUndo<cr>
 
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --no-semi'
-let g:ale_linters = {
-      \ 'javascript': ['prettier'],
-      \ 'typescript': ['eslint'],
-      \ 'python': ['pylint'],
-      \ 'php': ['phpcs']
-      \ }
-let g:ale_fixers = {
-      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'css': ['prettier'],
-      \ 'javascript': ['prettier'],
-      \ 'typescript': ['eslint', 'prettier'],
-      \ 'php': ['phpcbf', 'php_cs_fixer', 'remove_trailing_lines', 'trim_whitespace'],
-      \ }
-let g:ale_fix_on_save = 1
+        nmap <silent> <leader>k :CocCommand explorer<cr>
 
-" Deoplete
-" Commented out to remove autocompletion.
- let g:deoplete#enable_at_startup = 0
- let g:deoplete#auto_complete_delay = 1
+        "remap keys for gotos
+        nmap <silent> gd <Plug>(coc-definition)
+        nmap <silent> gy <Plug>(coc-type-definition)
+        nmap <silent> gi <Plug>(coc-implementation)
+        nmap <silent> gr <Plug>(coc-references)
+        nmap <silent> gh <Plug>(coc-doHover)
+
+        " diagnostics navigation
+        nmap <silent> [c <Plug>(coc-diagnostic-prev)
+        nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+        " rename
+        nmap <silent> <leader>rn <Plug>(coc-rename)
+
+        " Remap for format selected region
+        xmap <leader>f  <Plug>(coc-format-selected)
+        nmap <leader>f  <Plug>(coc-format-selected)
+
+        " organize imports
+        command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
+
+        " Use K to show documentation in preview window
+        nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+        function! s:show_documentation()
+            if (index(['vim','help'], &filetype) >= 0)
+                execute 'h '.expand('<cword>')
+            else
+                call CocAction('doHover')
+            endif
+        endfunction
+
+        "tab completion
+        inoremap <silent><expr> <TAB>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
+        inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+        function! s:check_back_space() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
+        endfunction
+
+        " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+        " position. Coc only does snippet and additional edit on confirm.
+        if exists('*complete_info')
+            inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+        else
+            imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+        endif
+
+        " For enhanced <CR> experience with coc-pairs checkout :h coc#on_enter()
+        inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    " }}}
+" }}}
