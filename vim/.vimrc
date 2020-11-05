@@ -19,6 +19,7 @@ set fillchars=vert:\ ,fold:\  listchars=tab:⎸\ ,nbsp:⎕
 set linebreak showbreak=↪\  breakindent breakindentopt=shift:-2
 set formatoptions+=nj
 syntax on
+set formatprg=prettier
 
 " ================ Turn Off Swap Files ==============
 
@@ -50,9 +51,12 @@ set linebreak    "Wrap lines at convenient points
 
 " ================ Folds ============================
 
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
+set foldmethod=indent " fold based on indent
+set foldlevelstart=99
+set foldnestmax=10 " deepest fold is 10 levels
+set nofoldenable " don't fold by default
+set foldlevel=1
+
 
 " ================ Completion =======================
 
@@ -141,6 +145,7 @@ Plug 'tpope/vim-commentary'
 " let g:onedark_termcolors=256
 " Plug 'arzg/vim-colors-xcode'
 Plug 'drewtempelmeyer/palenight.vim'
+" Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
 
 Plug 'Raimondi/delimitMate'
@@ -181,9 +186,10 @@ call plug#end()
 
 "Set theme
 "colorscheme gruvbox
-"colorscheme onedark
+" colorscheme onedark
 "colorscheme xcodedarkhc
 colorscheme palenight
+" colorscheme dracula
 set background=dark
 
 " set a map leader for more key combos
@@ -223,7 +229,9 @@ let mapleader = ','
 
         " coc-prettier
         command! -nargs=0 Prettier :CocCommand prettier.formatFile
-        nmap <leader>f :CocCommand prettier.formatFile<cr>
+        command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
+        nmap <silent> <leader>f :CocCommand prettier.formatFile<cr>
 
         " coc-git
         nmap [g <Plug>(coc-git-prevchunk)
@@ -248,8 +256,8 @@ let mapleader = ','
         nmap <silent> <leader>rn <Plug>(coc-rename)
 
         " Remap for format selected region
-        xmap <leader>f  <Plug>(coc-format-selected)
-        nmap <leader>f  <Plug>(coc-format-selected)
+        " xmap <leader>f  <Plug>(coc-format-selected)
+        " nmap <leader>f  <Plug>(coc-format-selected)
 
         " organize imports
         command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')

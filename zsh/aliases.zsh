@@ -58,6 +58,9 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # Clear terminal
 alias clr="clear"
 
+# Weather in Stockholm
+alias sthlm="curl wttr.in/Stockholm"
+
 # File size
 alias fs="stat -f \"%z bytes\""
 
