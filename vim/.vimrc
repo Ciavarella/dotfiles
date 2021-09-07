@@ -144,8 +144,8 @@ Plug 'tpope/vim-commentary'
 " Plug 'joshdick/onedark.vim'
 " let g:onedark_termcolors=256
 " Plug 'arzg/vim-colors-xcode'
-Plug 'drewtempelmeyer/palenight.vim'
-" Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'drewtempelmeyer/palenight.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
 
 Plug 'Raimondi/delimitMate'
@@ -188,8 +188,8 @@ call plug#end()
 "colorscheme gruvbox
 " colorscheme onedark
 "colorscheme xcodedarkhc
-colorscheme palenight
-" colorscheme dracula
+" colorscheme palenight
+colorscheme dracula
 set background=dark
 
 " set a map leader for more key combos
