@@ -1,5 +1,4 @@
 # Heavily inspired by Fish shell
-# https://github.com/ludviglundgren
 
 # needed to get things like current git branch
 autoload -Uz vcs_info
@@ -78,7 +77,7 @@ precmd() {
 }
 
 # Prompt style
-export PROMPT='%F{129}$(collapsed_wd)%F{241}$vcs_info_msg_0_%f`git_dirty``git_arrows``suspended_jobs` % %F{156}⪢ '
+export PROMPT='%F{226}$(collapsed_wd)%F{241}$vcs_info_msg_0_%f`git_dirty``git_arrows``suspended_jobs` % %F{156}⪢ '
 
 # Git status to the right
 #export RPROMPT='`git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'

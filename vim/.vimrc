@@ -140,13 +140,19 @@ Plug 'tpope/vim-commentary'
 
 "Theme
 "Plug 'morhetz/gruvbox'
-"Plug 'gosukiwi/vim-atom-dark'
+" Plug 'gosukiwi/vim-atom-dark'
 " Plug 'joshdick/onedark.vim'
 " let g:onedark_termcolors=256
 " Plug 'arzg/vim-colors-xcode'
-" Plug 'drewtempelmeyer/palenight.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'drewtempelmeyer/palenight.vim'
+" Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
+
+" 16-bit theme.
+" Plug 'xero/sourcerer.vim'
+
+" VSCode styled theme
+" Plug 'tomasiser/vim-code-dark'
 
 Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
@@ -158,7 +164,11 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
+Plug 'othree/html5.vim'
+Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'othree/yajs.vim'
 Plug 'storyn26383/vim-vue'
 
 Plug 'autozimu/LanguageClient-neovim', {
@@ -188,9 +198,15 @@ call plug#end()
 "colorscheme gruvbox
 " colorscheme onedark
 "colorscheme xcodedarkhc
-" colorscheme palenight
-colorscheme dracula
+colorscheme palenight
+" colorscheme dracula
 set background=dark
+
+"16-bit theme
+" colorscheme sourcerer
+
+" VSCode themed
+" colorscheme codedark
 
 " set a map leader for more key combos
 let mapleader = ','
