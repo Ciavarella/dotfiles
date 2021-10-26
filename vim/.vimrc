@@ -79,6 +79,13 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
+" ================ Cursor ========================
+
+" Set different cursor based on insert on normal mode.
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 " ================ Search ===========================
 
 set incsearch       " Find the next match as we type the search
