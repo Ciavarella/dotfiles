@@ -14,12 +14,15 @@ set autoread
 set hidden
 set spell
 set lazyredraw
+set redrawtime=10000
 let g:PHP_outdentphpescape = 0
 set fillchars=vert:\ ,fold:\  listchars=tab:⎸\ ,nbsp:⎕
 set linebreak showbreak=↪\  breakindent breakindentopt=shift:-2
 set formatoptions+=nj
 syntax on
+set re=0
 set formatprg=prettier
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 " ================ Turn Off Swap Files ==============
 
@@ -101,7 +104,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/syntastic'
 
 " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
-let g:python3_host_prog = "/usr/local/bin/python3"
+let g:python3_host_prog = "/usr/local/bin/python3.10"
 Plug '/usr/local/opt/fzf'
 
 " Deoplete
@@ -151,9 +154,11 @@ Plug 'tpope/vim-commentary'
 " Plug 'joshdick/onedark.vim'
 " let g:onedark_termcolors=256
 " Plug 'arzg/vim-colors-xcode'
-Plug 'drewtempelmeyer/palenight.vim'
+" Plug 'drewtempelmeyer/palenight.vim'
 " Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
+Plug 'crusoexia/vim-monokai'
+
 
 " 16-bit theme.
 " Plug 'xero/sourcerer.vim'
@@ -167,16 +172,17 @@ Plug 'airblade/vim-gitgutter'
 
 
 " Syntax
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'jparise/vim-graphql'
-Plug 'leafgarland/typescript-vim'
-Plug 'pangloss/vim-javascript'
+" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+" Plug 'jparise/vim-graphql'
+" Plug 'leafgarland/typescript-vim'
 Plug 'othree/html5.vim'
-Plug 'yuezk/vim-js'
+" Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'othree/yajs.vim'
-Plug 'storyn26383/vim-vue'
+" Plug 'othree/yajs.vim'
+" Plug 'storyn26383/vim-vue'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
 
 Plug 'autozimu/LanguageClient-neovim', {
       \ 'branch': 'next',
@@ -205,8 +211,9 @@ call plug#end()
 "colorscheme gruvbox
 " colorscheme onedark
 "colorscheme xcodedarkhc
-colorscheme palenight
+" colorscheme palenight
 " colorscheme dracula
+colorscheme monokai
 set background=dark
 
 "16-bit theme
@@ -219,8 +226,8 @@ set background=dark
 let mapleader = ','
 
 " Mappings
-    " shortcut to save
-    nmap <leader>, :w<cr>
+    " shortcut to format and save
+    nmap <leader>, :CocCommand prettier.formatFile <CR> :w<cr>
     if isdirectory(".git")
       " if in a git project, use :GFiles
       nmap <silent> <leader>t :GitFiles --cached --others --exclude-standard<cr>
@@ -243,9 +250,9 @@ let mapleader = ','
         \ 'coc-sh',
         \ 'coc-vimlsp',
         \ 'coc-prettier',
-        \ 'coc-ultisnips',
         \ 'coc-explorer',
-        \ 'coc-diagnostic'
+        \ 'coc-diagnostic',
+        \ 'coc-snippets'
         \ ]
 
         autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -253,6 +260,8 @@ let mapleader = ','
         " coc-prettier
         command! -nargs=0 Prettier :CocCommand prettier.formatFile
         command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
+        highlight CocErrorFloat ctermfg=White guifg=#ffffff
 
         nmap <silent> <leader>f :CocCommand prettier.formatFile<cr>
 
@@ -278,6 +287,9 @@ let mapleader = ','
         " rename
         nmap <silent> <leader>rn <Plug>(coc-rename)
 
+        " Remap keys for applying codeAction to the current line.
+        nmap <leader>ac  <Plug>(coc-codeaction)
+
         " Remap for format selected region
         " xmap <leader>f  <Plug>(coc-format-selected)
         " nmap <leader>f  <Plug>(coc-format-selected)
@@ -296,28 +308,22 @@ let mapleader = ','
             endif
         endfunction
 
-        "tab completion
-        inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
-        inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
         function! s:check_back_space() abort
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~# '\s'
+          let col = col('.') - 1
+          return !col || getline('.')[col - 1]  =~# '\s'
         endfunction
 
-        " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-        " position. Coc only does snippet and additional edit on confirm.
-        if exists('*complete_info')
-            inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-        else
-            imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-        endif
+        imap <C-l> <Plug>(coc-snippets-expand)
 
-        " For enhanced <CR> experience with coc-pairs checkout :h coc#on_enter()
-        inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-    " }}}
-" }}}
+        inoremap <silent><expr> <TAB>
+        \ coc#pum#visible() ? coc#_select_confirm() :
+        \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+        \ CheckBackSpace() ? "\<TAB>" :
+        \ coc#refresh()
+
+        function! CheckBackSpace() abort
+          let col = col('.') - 1
+          return !col || getline('.')[col - 1]  =~# '\s'
+        endfunction
+
+        let g:coc_snippet_next = '<C-j>'

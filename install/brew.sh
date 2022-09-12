@@ -32,16 +32,16 @@ formulas=(
     Caskroom/cask/dashlane
     Caskroom/cask/virtualbox
     Caskroom/cask/google-chrome
-    Caskroom/cask/firefox-developer-edition
+    # Caskroom/cask/firefox-developer-edition
     Caskroom/cask/spotify
     Caskroom/cask/slack
     Caskroom/cask/the-unarchiver
-    Caskroom/cask/vlc
+    # Caskroom/cask/vlc
     Caskroom/cask/visual-studio-code
     Caskroom/cask/goofy
-    Caskroom/cask/gitkraken
+    # Caskroom/cask/gitkraken
     Caskroom/cask/sequel-pro
-    Caskroom/cask/postman
+    # Caskroom/cask/postman
 )
 
 for formula in "${formulas[@]}"; do
