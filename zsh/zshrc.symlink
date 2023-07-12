@@ -78,3 +78,8 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 # GO
 export PATH=$PATH:/usr/local/go/bin
+
+export AWS_REGION="eu-central-1"
+export DEV="1"
+export VERIFY_SECRET_AWS_ACCESS_KEY_ID="AKIAVN6YH5PDCCEMDTX4"
+export VERIFY_SECRET_AWS_SECRET_ACCESS_KEY="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"

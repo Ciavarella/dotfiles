@@ -1,4 +1,3 @@
-" Use Vim settings, rather then Vi settings (much better!).
 set nocompatible
 
 set clipboard=unnamed
@@ -12,7 +11,7 @@ set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
 set autoread
 set hidden
-set spell
+set nospell
 set lazyredraw
 set redrawtime=10000
 let g:PHP_outdentphpescape = 0
@@ -84,9 +83,26 @@ set sidescroll=1
 
 " ================ Cursor ========================
 
+
+"Cursor settings:
+
+"  1 -> blinking block
+"  2 -> solid block
+"  3 -> blinking underscore
+"  4 -> solid underscore
+"  5 -> blinking vertical bar
+"  6 -> solid vertical bar
+
+
 " Set different cursor based on insert on normal mode.
+"
+" Insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+
+" Replace mode
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+
+" Normal mode
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " ================ Search ===========================
@@ -129,6 +145,12 @@ let airline#extensions#ale#show_line_numbers = 1
 let airline#extensions#ale#open_lnum_symbol = '(L'
 let airline#extensions#ale#close_lnum_symbol = ')'
 
+"TypeScript
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+
 "Python
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
@@ -157,7 +179,10 @@ Plug 'tpope/vim-commentary'
 " Plug 'drewtempelmeyer/palenight.vim'
 " Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'sheerun/vim-polyglot'
-Plug 'crusoexia/vim-monokai'
+
+" Plug 'crusoexia/vim-monokai'
+Plug 'bignimbus/pop-punk.vim'
+
 
 
 " 16-bit theme.
@@ -174,7 +199,7 @@ Plug 'airblade/vim-gitgutter'
 " Syntax
 " Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Plug 'jparise/vim-graphql'
-" Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'othree/html5.vim'
 " Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -213,7 +238,8 @@ call plug#end()
 "colorscheme xcodedarkhc
 " colorscheme palenight
 " colorscheme dracula
-colorscheme monokai
+" colorscheme monokai
+colorscheme pop-punk
 set background=dark
 
 "16-bit theme
@@ -251,8 +277,8 @@ let mapleader = ','
         \ 'coc-vimlsp',
         \ 'coc-prettier',
         \ 'coc-explorer',
-        \ 'coc-diagnostic',
-        \ 'coc-snippets'
+        \ 'coc-snippets',
+        \ 'coc-highlight'
         \ ]
 
         autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -264,6 +290,8 @@ let mapleader = ','
         highlight CocErrorFloat ctermfg=White guifg=#ffffff
 
         nmap <silent> <leader>f :CocCommand prettier.formatFile<cr>
+
+        nmap <leader>. :Ag<cr>
 
         " coc-git
         nmap [g <Plug>(coc-git-prevchunk)
@@ -280,9 +308,12 @@ let mapleader = ','
         nmap <silent> gr <Plug>(coc-references)
         nmap <silent> gh <Plug>(coc-doHover)
 
+        " Apply AutoFix to problem on the current line.
+        nmap <leader>qf  <Plug>(coc-fix-current)
+
         " diagnostics navigation
-        nmap <silent> [c <Plug>(coc-diagnostic-prev)
-        nmap <silent> ]c <Plug>(coc-diagnostic-next)
+        " nmap <silent> [c <Plug>(coc-diagnostic-prev)
+        " nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
         " rename
         nmap <silent> <leader>rn <Plug>(coc-rename)

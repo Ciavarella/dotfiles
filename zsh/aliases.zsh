@@ -58,6 +58,9 @@ alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 # Clear terminal
 alias clr="clear"
 
+# Run npm command
+alias vamos="npm install && npm run dev"
+
 # Weather in Stockholm
 alias sthlm="curl wttr.in/Stockholm"
 

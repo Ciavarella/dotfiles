@@ -6,6 +6,9 @@
     user = Ciavarella
 [init]
     templatedir = ~/.dotfiles/git/templates
+[SmartCarProject]
+[includeIf "gitdir:~/Code/smartcar/"]
+	path=".gitconfig-smart"
 [alias]
     # list all aliases
     la = "!git config -l | grep alias | cut -c 7-"

@@ -14,10 +14,10 @@
   "git.addGBlameToBufferVar": true,
   "snippets.ultisnips.enable": false,
   "coc.preferences.formatOnSaveFiletypes": [
-    "typescript",
     "javascript",
-    "typescriptreact",
     "javascriptreact",
+    "typescript",
+    "typescriptreact",
     "css"
   ],
   "explorer.icon.enableNerdfont": true,
